@@ -2,7 +2,7 @@ import discord
 from dotenv import load_dotenv
 import os
 
-
+alreadycaughtnotifier = "ALREADY-CAUGHT-IGNORE"
 antipiratemessage = """
 Yo, so like, pirating is totally not the vibe, fam. 
 It's lowkey stealing and messes up the game for devs who worked hard, ya know? 
@@ -44,6 +44,7 @@ async def on_message(message):
             # ignore
             return
         
+        masterchannel = message.channel
         await message.channel.send('Starting scan...')
         guilds = client.guilds
 
@@ -66,10 +67,47 @@ async def on_message(message):
                             continue
 
                         if activity.name == "Spacewar":
+                            dm_channel = await member.create_dm()
+                            messages = [message async for message in dm_channel.history(limit=100)]
+                            
+
+                            alreadycaught = False 
+
+
+                            for message in messages:                
+                                if alreadycaughtnotifier in message.content:
+                                    # detected pirate but for preventing spam no message
+                                    print(f'Message found: {message.content}')
+                                    alreadycaught = True
+
+                                      
+
                             # detected pirate
-                            await member.send(antipiratemessage)
-                            await message.channel.send(f"Detected pirate: {member.name}")
-                            print(f"Detected pirate: {member.name}")
+                            if not alreadycaught:
+                                await member.send(antipiratemessage)
+                                await member.send(alreadycaughtnotifier)
+                                await masterchannel.send(f"Detected pirate: {member.name}")
+                                print(f"Detected pirate: {member.name}")
+                                with open("hallofpirates.txt", "a") as f:
+                                    f.write(f"{member.name} | {member.id} | 1\n")
+                            else:
+                                with open("hallofpirates.txt", "r") as f:
+                                    lines = f.readlines()
+
+                                for i, line in enumerate(lines):
+                                    if str(member.id) in line:
+                                        split_line = line.split("|")
+                                        count = int(split_line[2]) + 1
+                                        split_line[2] = str(count)
+                                        lines[i] = "|".join(split_line)
+                                        break
+                                    
+                                with open("hallofpirates.txt", "w") as f:
+                                    f.writelines(lines)
+                                            
+
+                                print(f"Detected but was already caught earlier: {member.name}")
+                                await masterchannel.send(f"Detected pirate that was already caught earlier: {member.name}")
 
                     processed_members.append(member)
 
