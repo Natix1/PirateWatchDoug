@@ -14,5 +14,6 @@ AGAIN, I DO NOT CARE (but still go ahead and create an issue) IF A THERMONUCLEAR
 4. Create a virtual environment
 5. Install dependencies as listed in requirements.txt
 6. Run python src/main.py
-7. Enjoy!
+7. Adjust config.json and put your user-id inside the allowedUserIds (config.json) is created automatically in src/ after running main.py without it
+8. Enjoy waiting hours for the scans to finish
 If you do not know how to do the above, you can do your own research
