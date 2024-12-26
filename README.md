@@ -4,6 +4,8 @@ Includes protection against spamming people multiple times.
 I'm sorry for anyone reviewing this code. Total mess.  
 If I am every gonna work on this again I am making sure to split this up into multiple files and functions.  
 For now enjoy.  
+DISCLAIMER THIS IS A SELFBOT. AGAINST DISCORD TOS. EDUCATIONAL PURPOSES ONLY. MAKE SURE TO RUN ONLY WHEN YOU ARE CERTAIN YOU CAUSE NO HARM TO ANYONE!!! I AM NOT RESPONSIBLE FOR ANY DAMAGE YOU CAUSE WITH THIS, NO MATTER THE SEVERITY.
+AGAIN, I DO NOT CARE (but still go ahead and create an issue) IF A THERMONUCLEAR WAR BREAKS OUT BECAUSE OF THIS. I WARNED YOU.
 # setup guide
 1. Clone this repo & CD into it
 2. Create a file in that directory with the name '.env'
