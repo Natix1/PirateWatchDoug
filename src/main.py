@@ -16,6 +16,8 @@ https://tenor.com/view/memories-gif-21184195
 ᵗʰᶦˢ ᵐᵉˢˢᵃᵍᵉ ʷᵃˢ ᵃᵘᵗᵒᵐᵃᵗᶦᶜᵃˡˡʸ ᵃⁿᵈ ᵖʳᵒᵍʳᵃᵐᵃᵗᶦᶜᵃˡˡʸ ˢᵉⁿᵗ ᵇʸ ᴾᶦʳᵃᵗᵉᵂᵃᵗᶜʰᴰᵒᵘᵍ
 """
 
+allowed_user_id = 955090007335530506
+# user id allowed to use the bots $startscan
 
 # Obtain the discord token from the .env
 load_dotenv()
@@ -38,6 +40,10 @@ async def on_ready():
 @client.event
 async def on_message(message):
     if message.content.startswith('$startscan') or message.content.startswith("s"):
+        if message.author.id != allowed_user_id:
+            # ignore
+            return
+        
         await message.channel.send('Starting scan...')
         guilds = client.guilds
 
