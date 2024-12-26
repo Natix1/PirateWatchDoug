@@ -5,9 +5,11 @@ I'm sorry for anyone reviewing this code. Total mess.
 If I am every gonna work on this again I am making sure to split this up into multiple files and functions.  
 For now enjoy.  
 # setup guide
-1. Clone this repostiroy & CD into it
-2. Create a virtual environment
-3. Install dependencies as listed in requirements.txt
-4. Run python src/main.py
-5. Enjoy!
+1. Clone this repo & CD into it
+2. Create a file in that directory with the name '.env'
+3. Put this: `TOKEN=` alongside your discord token. Tutorials how to find online.
+4. Create a virtual environment
+5. Install dependencies as listed in requirements.txt
+6. Run python src/main.py
+7. Enjoy!
 If you do not know how to do the above, you can do your own research
