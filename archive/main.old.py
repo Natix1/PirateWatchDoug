@@ -24,12 +24,7 @@ load_dotenv()
 TOKEN = os.getenv("TOKEN")
 if not TOKEN:
     print("Please enter a valid token in the .env file")
-
-# TODO
-# 1. Fetch all server lists
-# 2. Fetch all members in every server
-# 3. Fetch every members activity
-
+    
 # Init
 client = discord.Client()
 

@@ -1,3 +1,6 @@
 venv/
 .env
 hallofpirates.txt
+__pycache__
+config.json
+hall_of_pirates.json
